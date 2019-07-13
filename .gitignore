@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Domain/bin
+/Domain/obj
+/MvcAgeApp/bin
+/MvcAgeApp/obj
+/Tests.MvcAgeApp/bin
+/Tests.MvcAgeApp/obj
+

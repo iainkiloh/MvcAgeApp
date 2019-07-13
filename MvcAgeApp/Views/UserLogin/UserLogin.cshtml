@@ -1,0 +1,30 @@
+﻿@model MvcAgeApp.Models.UserLoginViewModel
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#Dob").datepicker({
+                dateFormat: "dd-mm-yy", changeYear: true, yearRange: "-100:+0"
+            });
+        });
+    </script>
+}
+
+<body>
+    <form asp-action="UserLogin" method="post">
+        <div asp-validation-summary="All"></div>
+        <p>
+            <label asp-for="Name">Your Name</label>
+            <input asp-for="Name" />
+        </p>
+        <p>
+            <label asp-for="Email">Your Email</label>
+            <input asp-for="Email" />
+        </p>
+        <p>
+            <label asp-for="Dob">Your Date of Birth</label>
+            @Html.TextBoxFor(m => m.Dob, new { autocomplete = "off" })
+        </p>
+        <button type="submit">Login</button>
+    </form>
+</body>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MvcAgeApp.Models.LoginAttemptViewModel>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        <p>
+            Filter by Name or Email: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+        </p>
+    }
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>@Html.ActionLink("Name", "UserLoginList", new { sortOrder = ViewBag.NameSortParm })</th>
+                    <th>@Html.ActionLink("Email", "UserLoginList", new { sortOrder = ViewBag.EmailSortParm })</th>
+                    <th>@Html.ActionLink("Login Attempt", "UserLoginList", new { sortOrder = ViewBag.DateSortParm })</th>
+                    <th>@Html.ActionLink("Login Success", "UserLoginList", new { sortOrder = ViewBag.SuccessSortParm })</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (MvcAgeApp.Models.LoginAttemptViewModel item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Email</td>
+                        <td>@item.LoginAttemptTime</td>
+                        <td>@item.LoginSuccess</td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+        </div>
+</body>
