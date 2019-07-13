@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using MvcAgeApp.Infrastructure.Validators;
 using MvcAgeApp.Models;
 using System;
+using System.Globalization;
 
 namespace MvcAgeApp
 {
@@ -19,7 +20,13 @@ namespace MvcAgeApp
     {
         public Startup(IConfiguration configuration)
         {
+            //uk specific culture settings for this app
+            var cultureInfo = new CultureInfo("en-GB");
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+            CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
             Configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }

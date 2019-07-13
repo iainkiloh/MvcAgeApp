@@ -59,9 +59,9 @@ namespace MvcAgeApp.Controllers
 
         }
 
-        public ActionResult UserLoginList(string searchString, string sortOrder)
+        public ViewResult UserLoginList(string searchString, string sortOrder)
         {
-            //quick simple sorting - not production code!
+            //quick simple sorting 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.EmailSortParm = String.IsNullOrEmpty(sortOrder) ? "email_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
